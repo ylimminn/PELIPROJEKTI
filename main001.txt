@@ -1,0 +1,50 @@
+package fi.tamk.tiko;
+
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+
+public class CompanionGame extends Game {
+	SpriteBatch menuButtons;
+	Texture bHome;
+	Texture bWater;
+	homeScreen home;
+	private Stage stage;
+	menuButton buttonHome;
+	menuButton buttonWater;
+
+	
+	@Override
+	public void create () {
+		menuButtons = new SpriteBatch();
+		bHome = new Texture("b_home.png");
+		bWater = new Texture("b_water.png");
+		stage = new Stage(new FitViewport(8f, 4.8f), menuButtons);
+		buttonHome = new menuButton(bHome, 0);
+		buttonWater = new menuButton(bWater, 2.5f);
+		stage.addActor(buttonHome);
+		stage.addActor(buttonWater);
+		setScreen(home);
+	}
+
+	@Override
+	public void render () {
+		Gdx.gl.glClearColor(255, 0, 255, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//kutsuu jokaisen stagella olevan actorin actia
+		stage.act(Gdx.graphics.getDeltaTime());
+		stage.draw();
+	}
+	
+	@Override
+	public void dispose () {
+		menuButtons.dispose();
+		bHome.dispose();
+		bWater.dispose();
+	}
+}

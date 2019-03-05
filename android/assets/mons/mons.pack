@@ -1,0 +1,19 @@
+
+mons.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+momo
+  rotate: false
+  xy: 1, 1
+  size: 198, 243
+  orig: 198, 243
+  offset: 0, 0
+  index: -1
+yuki
+  rotate: false
+  xy: 201, 129
+  size: 100, 115
+  orig: 100, 115
+  offset: 0, 0
+  index: -1

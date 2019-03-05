@@ -1,0 +1,62 @@
+package fi.tamk.tiko;
+
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+
+public class CompanionGame extends Game {
+	static SpriteBatch menuButtons;
+	Texture bHome;
+	Texture bWater;
+	homeScreen home;
+	private Stage menu;
+	static menuButton buttonHome;
+	static menuButton buttonWater;
+	static float worldWidth = 10f;
+	static float worldHeight = 4.8f;
+	static OrthographicCamera camera;
+
+
+	public static SpriteBatch getMenuButtons() {
+		return menuButtons; }
+
+	@Override
+	public void create () {
+		menuButtons = new SpriteBatch();
+		home = new homeScreen(this);
+		bHome = new Texture("b_home.png");
+		bWater = new Texture("b_water.png");
+		menu = new Stage(new FitViewport(worldWidth, worldHeight), menuButtons);
+		buttonHome = new menuButton(bHome, 0);
+		buttonWater = new menuButton(bWater, 2.5f);
+		menu.addActor(buttonHome);
+		menu.addActor(buttonWater);
+		setScreen(home);
+
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, 600, 500);
+	}
+
+	@Override
+	public void render () {
+	/*	Gdx.gl.glClearColor(255, 0, 255, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//kutsuu jokaisen stagella olevan actorin actia
+		menu.act(Gdx.graphics.getDeltaTime());
+		menu.draw(); */
+		super.render();
+	}
+
+	@Override
+	public void dispose () {
+		menuButtons.dispose();
+		bHome.dispose();
+		bWater.dispose();
+	}
+}

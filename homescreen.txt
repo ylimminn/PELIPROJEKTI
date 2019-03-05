@@ -1,0 +1,82 @@
+package fi.tamk.tiko;
+
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+
+public class homeScreen extends Game implements Screen {
+
+    private Stage menu;
+    Texture bHome;
+    Texture bWater;
+    homeScreen home;
+    private Stage stage;
+    static menuButton buttonHome;
+    static menuButton buttonWater;
+    static SpriteBatch batch;
+
+
+    public homeScreen(CompanionGame game) {}
+
+    @Override
+    public void show() {
+
+    }
+    @Override
+    public void create() {
+        menu = new Stage(new FitViewport(CompanionGame.worldWidth, CompanionGame.worldHeight), CompanionGame.getMenuButtons());
+
+        bHome = new Texture("b_home.png");
+        bWater = new Texture("b_water.png");
+        buttonHome = new menuButton(bHome, 0);
+        buttonWater = new menuButton(bWater, 2.5f);
+
+
+    }
+    @Override
+    public void render(float delta) {
+        CompanionGame.getMenuButtons().setProjectionMatrix(CompanionGame.camera.combined);
+        Gdx.gl.glClearColor(255, 0, 255, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        // menu.addActor(buttonHome);
+        //  menu.addActor(buttonWater);
+        //kutsuu jokaisen stagella olevan actorin actia
+        //  menu.act(Gdx.graphics.getDeltaTime());
+        //  menu.draw();
+        batch.begin();
+        batch.end();
+
+    }
+
+
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+}

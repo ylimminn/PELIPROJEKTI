@@ -1,0 +1,12 @@
+
+buttonSettingsPlc.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+b_settings
+  rotate: false
+  xy: 1, 1
+  size: 250, 60
+  orig: 250, 60
+  offset: 0, 0
+  index: -1
